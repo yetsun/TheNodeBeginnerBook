@@ -1,14 +1,13 @@
-function route(handle, pathname){
+function route(handle, pathname, res){
     console.log("route " + pathname);
 	
 	
 	if(pathname.toLowerCase() == "/start"){
-		return handle.start();
+		handle.start(res);
 	}else if(pathname.toLowerCase() == "/upload"){
-		return handle.upload();
+		handle.upload(res);
 	}else{
-		console.log("No request handler found for " + pathname);
-		return "404 Not found";
+		handle.notFound(res);
 	}
 
 }
